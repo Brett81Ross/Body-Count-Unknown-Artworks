@@ -1,6 +1,6 @@
-# Body--Count--Unknown
+# Body Count Unknown
 
-Welcome to Body--Count--Unknown.
+Welcome to Body Count Unknown.
 
 ## About the Artist
 
