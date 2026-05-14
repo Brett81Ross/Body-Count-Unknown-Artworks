@@ -1,4 +1,4 @@
-# Body Count Unknown Artw
+# Body Count Unknown Art
 
 Welcome to Body Count Unknown.
 
