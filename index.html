@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Body Count Unknown Art | Art by Brett Ross</title>
     <style>
-        /* CSS Styles for the Gallery */
         :root {
             --bg-color: #0d0d0d;
             --text-main: #f0f0f0;
@@ -29,8 +28,13 @@
             border-bottom: 1px solid var(--accent);
         }
 
+        .logo {
+            max-width: 150px;
+            margin-bottom: 1rem;
+        }
+
         h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             text-transform: uppercase;
             letter-spacing: 3px;
             margin: 0;
@@ -39,7 +43,6 @@
         .subtitle {
             color: var(--text-muted);
             font-style: italic;
-            font-size: 1.2rem;
             margin-top: 0.5rem;
         }
 
@@ -49,44 +52,30 @@
             padding: 3rem 2rem;
         }
 
-        .intro {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 4rem auto;
-            color: #bbbbbb;
-            font-size: 1.1rem;
-        }
-
-        /* CSS Grid for the Artwork */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         .art-card {
             background-color: #1a1a1a;
             border: 1px solid var(--accent);
-            border-radius: 6px;
+            border-radius: 8px;
             overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease;
         }
 
         .art-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+            transform: scale(1.02);
+            border-color: #666;
         }
 
-        .art-image {
+        .art-card img {
             width: 100%;
-            height: 300px;
-            background-color: #2a2a2a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            border-bottom: 1px solid var(--accent);
-            object-fit: cover; 
+            height: 350px;
+            object-fit: cover;
+            display: block;
         }
 
         .art-info {
@@ -95,80 +84,71 @@
         }
 
         .art-info h3 {
-            margin: 0 0 0.5rem 0;
-            font-size: 1.3rem;
-        }
-
-        .art-info p {
             margin: 0;
-            color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
         }
 
         footer {
             text-align: center;
-            padding: 2rem;
-            border-top: 1px solid var(--accent);
+            padding: 3rem;
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
+            border-top: 1px solid var(--accent);
         }
     </style>
 </head>
 <body>
 
     <header>
+        <img src="BCUlogoT.png" alt="BCU Logo" class="logo">
         <h1>Body Count Unknown Art</h1>
         <p class="subtitle">Mixed-Media & Biomechanical Art by Brett Ross</p>
     </header>
 
     <div class="container">
-        <section class="intro">
-            <p>Welcome to Body Count Unknown Art. Explore a curated collection of hand-drawn illustrations, digital creations, and biomechanical concepts.</p>
-        </section>
-
         <section class="gallery-grid">
             
-            <!-- Art Piece 1 -->
             <div class="art-card">
-                <div class="art-image">[ Image Placeholder ]</div>
-                <div class="art-info">
-                    <h3>Title of Piece</h3>
-                    <p>Digital / Mixed Media</p>
-                </div>
+                <img src="EmeraldGate.jpg" alt="Emerald Gate">
+                <div class="art-info"><h3>Emerald Gate</h3></div>
             </div>
 
-            <!-- Art Piece 2 -->
             <div class="art-card">
-                <div class="art-image">[ Image Placeholder ]</div>
-                <div class="art-info">
-                    <h3>Biomechanical Study</h3>
-                    <p>Pen & Ink</p>
-                </div>
+                <img src="FutureSeeker.jpg" alt="Future Seeker">
+                <div class="art-info"><h3>Future Seeker</h3></div>
             </div>
 
-            <!-- Art Piece 3 -->
             <div class="art-card">
-                <div class="art-image">[ Image Placeholder ]</div>
-                <div class="art-info">
-                    <h3>Title of Piece</h3>
-                    <p>Digital Canvas</p>
-                </div>
+                <img src="Golden-Gaze.jpg" alt="Golden Gaze">
+                <div class="art-info"><h3>Golden Gaze</h3></div>
             </div>
 
-             <!-- Art Piece 4 -->
             <div class="art-card">
-                <div class="art-image">[ Image Placeholder ]</div>
-                <div class="art-info">
-                    <h3>Title of Piece</h3>
-                    <p>Mixed Media</p>
-                </div>
+                <img src="Mask-Artwork.jpg" alt="Mask Artwork">
+                <div class="art-info"><h3>Mask Artwork</h3></div>
+            </div>
+
+            <div class="art-card">
+                <img src="Pick-Your-Poison.jpg" alt="Pick Your Poison">
+                <div class="art-info"><h3>Pick Your Poison</h3></div>
+            </div>
+
+            <div class="art-card">
+                <img src="Psybo-Villian.jpg" alt="Psybo Villian">
+                <div class="art-info"><h3>Psybo Villian</h3></div>
+            </div>
+
+            <div class="art-card">
+                <img src="Void-Sight.jpg" alt="Void Sight">
+                <div class="art-info"><h3>Void Sight</h3></div>
             </div>
 
         </section>
     </div>
 
     <footer>
-        <p>&copy; 2026 Body Count Unknown Art | Brett Ross. All rights reserved.</p>
+        <p>&copy; 2026 Body Count Unknown Art | Brett Ross</p>
     </footer>
 
 </body>
