@@ -3,107 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Body Count Unknown Art | Art by Brett Ross</title>
+    <title>Body Count Unknown Art</title>
     <style>
         :root {
             --bg-color: #0d0d0d;
             --text-main: #f0f0f0;
-            --text-muted: #888888;
             --accent: #444444;
         }
-
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
             margin: 0;
             padding: 0;
-            line-height: 1.6;
         }
-
         header {
             text-align: center;
-            padding: 4rem 1rem;
-            background: linear-gradient(to bottom, #1a1a1a, var(--bg-color));
+            padding: 3rem 1rem;
             border-bottom: 1px solid var(--accent);
         }
-
-        .logo {
-            max-width: 150px;
-            margin-bottom: 1rem;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin: 0;
-        }
-
-        .subtitle {
-            color: var(--text-muted);
-            font-style: italic;
-            margin-top: 0.5rem;
-        }
-
+        .logo { max-width: 120px; margin-bottom: 10px; }
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 3rem 2rem;
+            padding: 2rem;
         }
-
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
+            gap: 20px;
         }
-
         .art-card {
-            background-color: #1a1a1a;
+            background: #1a1a1a;
             border: 1px solid var(--accent);
             border-radius: 8px;
             overflow: hidden;
-            transition: transform 0.3s ease;
         }
-
-        .art-card:hover {
-            transform: scale(1.02);
-            border-color: #666;
-        }
-
         .art-card img {
             width: 100%;
-            height: 350px;
-            object-fit: cover;
+            height: auto;
             display: block;
         }
-
-        .art-info {
-            padding: 1.5rem;
-            text-align: center;
-        }
-
-        .art-info h3 {
-            margin: 0;
-            font-size: 1.2rem;
-            letter-spacing: 1px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 3rem;
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            border-top: 1px solid var(--accent);
-        }
+        .art-info { padding: 15px; text-align: center; }
+        footer { text-align: center; padding: 2rem; color: #666; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
     <header>
-        <img src="BCUlogoT.png" alt="BCU Logo" class="logo">
+        <img src="BCUlogoT.png" alt="Logo" class="logo">
         <h1>Body Count Unknown Art</h1>
-        <p class="subtitle">Mixed-Media & Biomechanical Art by Brett Ross</p>
     </header>
 
     <div class="container">
@@ -125,7 +74,7 @@
             </div>
 
             <div class="art-card">
-                <img src="Mask-Artwork.jpg" alt="Mask Artwork">
+                <img src="Mask-Artwork.jpg" alt="Mask">
                 <div class="art-info"><h3>Mask Artwork</h3></div>
             </div>
 
