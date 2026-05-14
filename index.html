@@ -8,10 +8,10 @@
         :root {
             --bg-color: #0d0d0d;
             --text-main: #f0f0f0;
-            --accent: #444444;
+            --accent: #333333;
         }
         body {
-            font-family: sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
             margin: 0;
@@ -22,36 +22,35 @@
             padding: 3rem 1rem;
             border-bottom: 1px solid var(--accent);
         }
-        .logo { max-width: 120px; margin-bottom: 10px; }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
+        .logo { max-width: 150px; margin-bottom: 15px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+        
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
         .art-card {
-            background: #1a1a1a;
+            background: #161616;
             border: 1px solid var(--accent);
-            border-radius: 8px;
+            border-radius: 10px;
             overflow: hidden;
         }
         .art-card img {
             width: 100%;
             height: auto;
             display: block;
+            background-color: #222;
         }
-        .art-info { padding: 15px; text-align: center; }
-        footer { text-align: center; padding: 2rem; color: #666; font-size: 0.8rem; }
+        .art-info { padding: 15px; text-align: center; border-top: 1px solid var(--accent); }
+        .art-info h3 { margin: 0; font-weight: 400; letter-spacing: 1px; }
+        footer { text-align: center; padding: 4rem 2rem; color: #555; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
     <header>
-        <img src="BCUlogoT.png" alt="Logo" class="logo">
+        <img src="Docs/BCUlogoT.png" alt="Logo" class="logo">
         <h1>Body Count Unknown Art</h1>
     </header>
 
@@ -59,37 +58,37 @@
         <section class="gallery-grid">
             
             <div class="art-card">
-                <img src="EmeraldGate.jpg" alt="Emerald Gate">
+                <img src="Docs/EmeraldGate.jpg" alt="Emerald Gate">
                 <div class="art-info"><h3>Emerald Gate</h3></div>
             </div>
 
             <div class="art-card">
-                <img src="FutureSeeker.jpg" alt="Future Seeker">
+                <img src="Docs/FutureSeeker.jpg" alt="Future Seeker">
                 <div class="art-info"><h3>Future Seeker</h3></div>
             </div>
 
             <div class="art-card">
-                <img src="Golden-Gaze.jpg" alt="Golden Gaze">
+                <img src="Docs/Golden-Gaze.jpg" alt="Golden Gaze">
                 <div class="art-info"><h3>Golden Gaze</h3></div>
             </div>
 
             <div class="art-card">
-                <img src="Mask-Artwork.jpg" alt="Mask">
+                <img src="Docs/Mask-Artwork.jpg" alt="Mask">
                 <div class="art-info"><h3>Mask Artwork</h3></div>
             </div>
 
             <div class="art-card">
-                <img src="Pick-Your-Poison.jpg" alt="Pick Your Poison">
+                <img src="Docs/Pick-Your-Poison.jpg" alt="Pick Your Poison">
                 <div class="art-info"><h3>Pick Your Poison</h3></div>
             </div>
 
             <div class="art-card">
-                <img src="Psybo-Villian.jpg" alt="Psybo Villian">
+                <img src="Docs/Psybo-Villian.jpg" alt="Psybo Villian">
                 <div class="art-info"><h3>Psybo Villian</h3></div>
             </div>
 
             <div class="art-card">
-                <img src="Void-Sight.jpg" alt="Void Sight">
+                <img src="Docs/Void-Sight.jpg" alt="Void Sight">
                 <div class="art-info"><h3>Void Sight</h3></div>
             </div>
 
