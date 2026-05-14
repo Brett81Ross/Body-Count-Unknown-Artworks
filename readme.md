@@ -4,7 +4,7 @@ Welcome to Body Count Unknown.
 
 ## About the Artist
 
-I’m Brett M. Ross, a visual artist whose work delves into biomechanical organisms—surreal, hybrid forms where human and machine intersect. Each piece invites you into a strange, organic-meets-technical world.
+Brett Ross, is a visual artist whose work delves into biomechanical organisms—surreal, hybrid forms where human and machine intersect. Each piece invites you into a strange, organic-meets-technical world.
 
 ## What You’ll Discover
 
