@@ -1,6 +1,4 @@
-# Body Count Unknown Art
-
-Welcome to Body Count Unknown.
+# Formaldehyde and Philigree Art Gallery
 
 ## About the Artist
 
