@@ -5,111 +5,275 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BODY COUNT UNKNOWN</title>
     <style>
-        /* Reset and Base Styles */
+        /* --- BRAND IDENTITY SYSTEM --- */
+        :root {
+            --bg-color: #0a0a0a;
+            --card-bg: #121212;
+            --text-main: #ffffff;
+            --text-muted: #777777;
+            --toxic-green: #8ce62c;
+            --border-color: #222222;
+        }
+
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
         }
 
         body {
-            background-color: #050505;
-            color: #ffffff;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            letter-spacing: 0.15em;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            background-color: var(--bg-color);
+            color: var(--text-main);
             overflow-x: hidden;
-            opacity: 0;
-            animation: fadeIn 1.2s ease-out forwards;
+            padding-bottom: 100px;
         }
 
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
-
-        /* Navigation Header */
+        /* --- HEADER / NAVIGATION --- */
         header {
             width: 100%;
-            padding: 30px 40px; /* Gives plenty of breathing room from the top and edges */
+            padding: 20px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            letter-spacing: 2px;
         }
 
-        .brand-title {
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        nav {
-            display: flex;
-            gap: 25px;
+        .brand-logo-text {
+            font-weight: 900;
+            font-size: 1.2rem;
         }
 
         nav a {
-            color: #888888;
+            color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            transition: color 0.3s ease, text-shadow 0.3s ease;
+            margin-left: 20px;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
         }
 
         nav a:hover {
-            color: #ffffff;
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+            color: var(--toxic-green);
         }
 
-        /* Main Centerpiece Area */
-        main {
-            flex: 1;
+        /* --- HERO SECTION --- */
+        .hero-container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            padding: 20px;
-        }
-
-        .hero-container {
             text-align: center;
-            max-width: 400px;
-            width: 100%;
         }
 
-        /* Your Green Graphic */
-        .center-graphic {
-            width: 140px; /* Scaled up for more presence */
+        /* Fixed Image Container */
+        .logo-showcase {
+            width: 100%;
+            max-width: 280px; 
+            margin-bottom: 30px;
+            filter: drop-shadow(0 0 15px rgba(140, 230, 44, 0.15));
+        }
+
+        .logo-showcase img {
+            width: 100%;
             height: auto;
             display: block;
-            margin: 0 auto 30px auto;
-            /* Applies a soft, atmospheric green glow matching the vibe */
-            filter: drop-shadow(0 0 25px rgba(118, 255, 3, 0.35)) drop-shadow(0 0 50px rgba(118, 255, 3, 0.15));
-            transition: transform 0.5s ease;
         }
 
-        .center-graphic:hover {
-            transform: scale(1.03);
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
         }
 
-        .gallery-title {
+        .hero-subtitle {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+
+        /* --- EMAIL SIGNUP --- */
+        .drop-signup-box {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 4px;
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 80px;
+        }
+
+        .drop-signup-box h3 {
             font-size: 1.1rem;
-            font-weight: 400;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .form-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .form-group input {
+            flex: 1;
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            color: var(--text-main);
+            outline: none;
+            font-size: 0.9rem;
+        }
+
+        .form-group input:focus {
+            border-color: var(--toxic-green);
+        }
+
+        .form-group button {
+            background-color: var(--text-main);
+            color: var(--bg-color);
+            border: none;
+            padding: 0 25px;
+            font-weight: bold;
+            cursor: pointer;
             text-transform: uppercase;
-            letter-spacing: 0.25em;
-            color: #ffffff;
-            margin-top: 10px;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease;
         }
 
-        /* Footer / Bottom Spacing */
-        footer {
-            padding: 40px;
-            text-align: center;
+        .form-group button:hover {
+            background-color: var(--toxic-green);
         }
 
-        .scroll-indicator {
+        /* --- PRODUCT GRID --- */
+        .section-label {
+            width: 100%;
+            max-width: 1160px;
+            text-align: left;
+            margin-bottom: 60px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            width: 100%;
+            max-width: 1160px;
+        }
+
+        .product-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            text-align: left;
+            position: relative;
+        }
+
+        .product-status {
+            position: absolute;
+            top: 15px;
+            right: 15px;
             font-size: 0.7rem;
-            text-transform: uppercase;
-            color: #4
+            background-color: #ff3333;
+            color: #fff;
+            padding: 3px 8px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .product-image-placeholder {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background-color: var(--bg-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed #222;
+            color: #444;
+        }
+
+        .product-title {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        .product-price {
+            color: var(--toxic-green);
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 1.8rem; }
+            .form-group { flex-direction: column; }
+            .form-group button { padding: 12px; }
+            header { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand-logo-text">BCU // GALLERY</div>
+        <nav>
+            <a href="#">ARCHIVE</a>
+            <a href="#">CONTACT</a>
+        </nav>
+    </header>
+
+    <div class="hero-container">
+        
+        <div class="logo-showcase">
+            <img src="logo.jpg" alt="Body Count Unknown Skull Logo">
+        </div>
+
+        <h1 class="hero-title">Body Count Unknown</h1>
+        <p class="hero-subtitle">DROP 01 // OVERSIZED APPAREL CORE</p>
+
+        <div class="drop-signup-box">
+            <h3>LOG IN FOR EARLY DROP ACCESS</h3>
+            <div class="form-group">
+                <input type="email" placeholder="ENTER YOUR EMAIL REGISTRATION" required>
+                <button type="submit">SUBMIT</button>
+            </div>
+        </div>
+
+        <div class="section-label">EXPECTED MANIFEST // DROP PREVIEW</div>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <span class="product-status">LTD RUN</span>
+                <div class="product-image-placeholder">[ HEAVY ZIP-UP HOODIE ]</div>
+                <div class="product-title">HEAVY ZIP-UP HOODIE (BLACK)</div>
+                <div class="product-price">$75.00</div>
+            </div>
+            <div class="product-card">
+                <span class="product-status">LTD RUN</span>
+                <div class="product-image-placeholder">[ HEAVYWEIGHT TEE ]</div>
+                <div class="product-title">BOX FIT HEAVYWEIGHT TEE (BLACK)</div>
+                <div class="product-price">$38.00</div>
+            </div>
+            <div class="product-card">
+                <span class="product-status">LTD RUN</span>
+                <div class="product-image-placeholder">[ ESSENTIAL BEANIE ]</div>
+                <div class="product-title">KNIT ESSENTIAL BEANIE (BLACK)</div>
+                <div class="product-price">$25.00</div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
