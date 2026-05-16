@@ -3,101 +3,244 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formaldehyde and Philigree</title>
+    <title>BODY COUNT UNKNOWN</title>
     <style>
+        /* --- BRAND IDENTITY SYSTEM --- */
         :root {
-            --bg-color: #0d0d0d;
-            --text-main: #f0f0f0;
-            --accent: #333333;
+            --bg-color: #0a0a0a;
+            --card-bg: #121212;
+            --text-main: #ffffff;
+            --text-muted: #777777;
+            --toxic-green: #8ce62c;
+            --border-color: #222222;
         }
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            font-family: 'Courier New', Courier, monospace; /* Hard, industrial default font */
         }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+            padding-bottom: 100px;
+        }
+
+        /* --- HEADER / NAVIGATION --- */
         header {
-            text-align: center;
-            padding: 3rem 1rem;
-            border-bottom: 1px solid var(--accent);
+            width: 100%;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            letter-spacing: 2px;
         }
-        .logo { max-width: 150px; margin-bottom: 15px; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 2rem; }
-        
-        .gallery-grid {
+
+        .brand-logo-text {
+            font-weight: 900;
+            font-size: 1.2rem;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 20px;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        nav a:hover {
+            color: var(--toxic-green);
+        }
+
+        /* --- HERO HERO HERO SECTION --- */
+        .hero-container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Vector Logo Container */
+        .logo-showcase {
+            width: 100%;
+            max-width: 280px; /* Controls the size of the logo on screen */
+            margin-bottom: 30px;
+            filter: drop-shadow(0 0 15px rgba(140, 230, 44, 0.15));
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .hero-subtitle {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+
+        /* --- THE DROP GATEKEEPER (EMAIL CAPTURE) --- */
+        .drop-signup-box {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 4px;
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 80px;
+        }
+
+        .drop-signup-box h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .form-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .form-group input {
+            flex: 1;
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            color: var(--text-main);
+            outline: none;
+            font-size: 0.9rem;
+        }
+
+        .form-group input:focus {
+            border-color: var(--toxic-green);
+        }
+
+        .form-group button {
+            background-color: var(--text-main);
+            color: var(--bg-color);
+            border: none;
+            padding: 0 25px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-group button:hover {
+            background-color: var(--toxic-green);
+        }
+
+        /* --- PREVIEW GRID --- */
+        .section-label {
+            width: 100%;
+            max-width: 1160px;
+            text-align: left;
+            margin-bottom: 20px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 100px;
+        }
+
+        .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-        .art-card {
-            background: #161616;
-            border: 1px solid var(--accent);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        .art-card img {
+            gap: 40px;
             width: 100%;
-            height: auto;
-            display: block;
-            background-color: #222;
+            max-width: 1160px;
+            margin-top: -60px;
         }
-        .art-info { padding: 15px; text-align: center; border-top: 1px solid var(--accent); }
-        .art-info h3 { margin: 0; font-weight: 400; letter-spacing: 1px; }
-        footer { text-align: center; padding: 4rem 2rem; color: #555; font-size: 0.8rem; }
+
+        .product-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            text-align: left;
+            position: relative;
+        }
+
+        .product-status {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 0.7rem;
+            background-color: #ff3333;
+            color: #fff;
+            padding: 3px 8px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .product-image-placeholder {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background-color: var(--bg-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed #222;
+            color: #444;
+        }
+
+        .product-title {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        .product-price {
+            color: var(--toxic-green);
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 1.8rem; }
+            .form-group { flex-direction: column; }
+            .form-group button { padding: 12px; }
+            header { padding: 20px; }
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <img src="Docs/BCUlogoT.png" alt="Logo" class="logo">
-        <h1>Body Count Unknown Art</h1>
+        <div class="brand-logo-text">BCU // GALLERY</div>
+        <nav>
+            <a href="#">ARCHIVE</a>
+            <a href="#">CONTACT</a>
+        </nav>
     </header>
 
-    <div class="container">
-        <section class="gallery-grid">
-            
-            <div class="art-card">
-                <img src="Docs/EmeraldGate.jpg" alt="Emerald Gate">
-                <div class="art-info"><h3>Emerald Gate</h3></div>
-            </div>
-
-            <div class="art-card">
-                <img src="Docs/FutureSeeker.jpg" alt="Future Seeker">
-                <div class="art-info"><h3>Future Seeker</h3></div>
-            </div>
-
-            <div class="art-card">
-                <img src="Docs/Golden-Gaze.jpg" alt="Golden Gaze">
-                <div class="art-info"><h3>Golden Gaze</h3></div>
-            </div>
-
-            <div class="art-card">
-                <img src="Docs/Mask-Artwork.jpg" alt="Mask">
-                <div class="art-info"><h3>Mask Artwork</h3></div>
-            </div>
-
-            <div class="art-card">
-                <img src="Docs/Pick-Your-Poison.jpg" alt="Pick Your Poison">
-                <div class="art-info"><h3>Pick Your Poison</h3></div>
-            </div>
-
-            <div class="art-card">
-                <img src="Docs/Psybo-Villian.jpg" alt="Psybo Villian">
-                <div class="art-info"><h3>Psybo Villian</h3></div>
-            </div>
-
-            <div class="art-card">
-                <img src="Docs/Void-Sight.jpg" alt="Void Sight">
-                <div class="art-info"><h3>Void Sight</h3></div>
-            </div>
-
-        </section>
-    </div>
-
-    <footer>
-        <p>&copy; 2026 Body Count Unknown Art | Brett Ross</p>
-    </footer>
-
-</body>
-</html>
+    <div class="hero-container">
+        
+        <div class="logo-showcase">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 900" width="100%" height="100%">
+                <g id="Skull-and-Ooze-Logo">
+                    <defs>
+                        <linearGradient id="toxic-slime-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#8ce62c" />
+                            <stop offset="60%" stop-color="#73c01a" />
+                            <stop offset="100%" stop-color="#4d850e" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M 102 430 C 102 430, 115 510, 140 520 C 165 530, 210 490, 230 520 C 250 550, 220 590, 250 630 C 270 660, 310 590, 315 550 C 320 510, 305 470, 315 440 L 102 440 Z" fill="url(#toxic-slime-grad)" stroke="#000000" stroke-width="8" stroke-linejoin="round" />
+                    <path d="M 165 515 C 165 515, 175 700, 178 840 C 180 855, 200 855, 202 840 C 205 700, 215 515, 215 515 Z" fill="url(#toxic-slime-grad)" stroke="#000000" stroke-width="8" stroke-linejoin="round" />
+                    <path d="M 145 540 Q 150 545, 155 538" fill="none" stroke="#000000" stroke-width="5" stroke-linecap="round" />
+                    <path d="M 240 500 Q 245 512, 242 525" fill="none" stroke="#000000" stroke-width="
