@@ -1,285 +1,501 @@
+```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BODY COUNT UNKNOWN</title>
+    <title>BODY COUNT UNKNOWN // DROP 01</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Space Mono for monospace cyberpunk/streetwear aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    
     <style>
-        /* --- BRAND IDENTITY SYSTEM --- */
-        :root {
-            --bg-color: #0a0a0a;
-            --card-bg: #121212;
-            --text-main: #ffffff;
-            --text-muted: #777777;
-            --toxic-green: #8ce62c;
-            --border-color: #222222;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Courier New', Courier, monospace;
-        }
-
         body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            overflow-x: hidden;
-            padding-bottom: 100px;
+            font-family: 'Space Mono', monospace;
+            background-color: #050505;
+            color: #ffffff;
         }
-
-        /* --- HEADER / NAVIGATION --- */
-        header {
-            width: 100%;
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--border-color);
-            letter-spacing: 2px;
+        /* Custom neon text glow */
+        .neon-glow {
+            text-shadow: 0 0 10px rgba(34, 197, 94, 0.4);
         }
-
-        .brand-logo-text {
-            font-weight: 900;
-            font-size: 1.2rem;
+        .neon-border {
+            box-shadow: 0 0 15px rgba(34, 197, 94, 0.1);
         }
-
-        nav a {
-            color: var(--text-muted);
-            text-decoration: none;
-            margin-left: 20px;
-            transition: color 0.3s ease;
-            font-size: 0.9rem;
+        /* Hide scrollbars but keep functionality */
+        ::-webkit-scrollbar {
+            width: 6px;
         }
-
-        nav a:hover {
-            color: var(--toxic-green);
+        ::-webkit-scrollbar-track {
+            background: #050505;
         }
-
-        /* --- HERO SECTION --- */
-        .hero-container {
-            max-width: 1200px;
-            margin: 60px auto;
-            padding: 0 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
+        ::-webkit-scrollbar-thumb {
+            background: #222;
+            border-radius: 3px;
         }
-
-        /* Fixed Image Container */
-        .logo-showcase {
-            width: 100%;
-            max-width: 280px; 
-            margin-bottom: 30px;
-            filter: drop-shadow(0 0 15px rgba(140, 230, 44, 0.15));
-        }
-
-        .logo-showcase img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .hero-title {
-            font-size: 2.5rem;
-            font-weight: 900;
-            letter-spacing: 4px;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .hero-subtitle {
-            color: var(--text-muted);
-            font-size: 1rem;
-            margin-bottom: 40px;
-            letter-spacing: 1px;
-        }
-
-        /* --- EMAIL SIGNUP --- */
-        .drop-signup-box {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 30px;
-            border-radius: 4px;
-            width: 100%;
-            max-width: 500px;
-            margin-bottom: 80px;
-        }
-
-        .drop-signup-box h3 {
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
-        }
-
-        .form-group {
-            display: flex;
-            gap: 10px;
-        }
-
-        .form-group input {
-            flex: 1;
-            background-color: var(--bg-color);
-            border: 1px solid var(--border-color);
-            padding: 12px;
-            color: var(--text-main);
-            outline: none;
-            font-size: 0.9rem;
-        }
-
-        .form-group input:focus {
-            border-color: var(--toxic-green);
-        }
-
-        .form-group button {
-            background-color: var(--text-main);
-            color: var(--bg-color);
-            border: none;
-            padding: 0 25px;
-            font-weight: bold;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: background-color 0.3s ease;
-        }
-
-        .form-group button:hover {
-            background-color: var(--toxic-green);
-        }
-
-        /* --- PRODUCT GRID --- */
-        .section-label {
-            width: 100%;
-            max-width: 1160px;
-            text-align: left;
-            margin-bottom: 60px;
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 15px;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            width: 100%;
-            max-width: 1160px;
-        }
-
-        .product-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 20px;
-            text-align: left;
-            position: relative;
-        }
-
-        .product-status {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 0.7rem;
-            background-color: #ff3333;
-            color: #fff;
-            padding: 3px 8px;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-
-        .product-image-placeholder {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            background-color: var(--bg-color);
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px dashed #222;
-            color: #444;
-        }
-
-        .product-title {
-            font-size: 1rem;
-            margin-bottom: 5px;
-            letter-spacing: 1px;
-        }
-
-        .product-price {
-            color: var(--toxic-green);
-            font-size: 0.9rem;
-            font-weight: bold;
-        }
-
-        @media (max-width: 768px) {
-            .hero-title { font-size: 1.8rem; }
-            .form-group { flex-direction: column; }
-            .form-group button { padding: 12px; }
-            header { padding: 20px; }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #22c55e;
         }
     </style>
 </head>
-<body>
+<body class="min-h-screen flex flex-col justify-between selection:bg-green-500 selection:text-black">
 
-    <header>
-        <div class="brand-logo-text">BCU // GALLERY</div>
-        <nav>
-            <a href="#">ARCHIVE</a>
-            <a href="#">CONTACT</a>
-        </nav>
-    </header>
-
-    <div class="hero-container">
-        
-        <div class="logo-showcase">
-            <img src="logo.jpg" alt="Body Count Unknown Skull Logo">
-        </div>
-
-        <h1 class="hero-title">Body Count Unknown</h1>
-        <p class="hero-subtitle">DROP 01 // OVERSIZED APPAREL CORE</p>
-
-        <div class="drop-signup-box">
-            <h3>LOG IN FOR EARLY DROP ACCESS</h3>
-            <div class="form-group">
-                <input type="email" placeholder="ENTER YOUR EMAIL REGISTRATION" required>
-                <button type="submit">SUBMIT</button>
-            </div>
-        </div>
-
-        <div class="section-label">EXPECTED MANIFEST // DROP PREVIEW</div>
-
-        <div class="product-grid">
-            <div class="product-card">
-            <span class="status">LTD RUN</span>
-<div class="product-image">
-    <img src="images/heavy-zip-up-hoodie-black.jpg" alt="Heavy Zip-Up Hoodie Black" width="300">
-</div>
-<div class="product-title">HEAVY ZIP-UP HOODIE (BLACK)</div>
-<div class="product-price">$75.00</div>
-                <span class="status">LTD RUN</span>
-<div class="product-image">
-    <img src="images/essential-beanie-black.jpg" alt="Knit Essential Beanie Black" width="300">
-</div>
-<div class="product-title">KNIT ESSENTIAL BEANIE (BLACK)</div>
-<div class="product-price">$25.00</div>
-            </div>
-            <div class="product-card">
-            <span class="status">LTD RUN</span>
-<div class="product-image">
-    <img src="images/heavyweight-tee-black.jpg" alt="Box Fit Heavyweight Tee Black" width="300">
-</div>
-<div class="product-title">BOX FIT HEAVYWEIGHT TEE (BLACK)</div>
-<div class="product-price">$38.00</div>
-            </div>
-            
-            </div>
-        </div>
-
+    <!-- Announcement Bar -->
+    <div class="bg-zinc-950 border-b border-zinc-900 py-2 px-4 text-center text-[10px] tracking-[0.2em] text-zinc-400 uppercase">
+        <span class="inline-block animate-pulse w-2 h-2 rounded-full bg-green-500 mr-2"></span>
+        Drop 01 // Limited Quantities // Worldwide Shipping
     </div>
 
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-40 bg-[#050505]/95 backdrop-blur-md border-b border-zinc-900 py-4 px-6 md:px-12 flex justify-between items-center">
+        <a href="#" class="text-sm font-bold tracking-[0.3em] hover:text-green-500 transition-colors">BCU</a>
+        
+        <div class="flex items-center gap-6">
+            <button onclick="openCart()" class="relative text-xs tracking-widest uppercase hover:text-green-500 transition-colors flex items-center gap-2">
+                Cart (<span id="cart-count">0</span>)
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="max-w-6xl mx-auto px-4 md:px-8 py-12 flex-grow w-full">
+        
+        <!-- Hero Section -->
+        <div class="flex flex-col items-center text-center mb-16">
+            <!-- Brand Logo (Hosted Online - No Upload Required) -->
+            <div class="w-24 h-24 md:w-32 md:h-32 mb-6 group cursor-pointer transition-transform duration-500 hover:scale-105">
+                <img 
+                    src="https://images.unsplash.com/photo-1601042879364-f3947d3f9c16?auto=format&fit=crop&q=80&w=300" 
+                    alt="Body Count Unknown Skull Logo" 
+                    class="w-full h-full object-cover rounded-full border border-zinc-800 group-hover:border-green-500 transition-all duration-300"
+                    onerror="this.src='https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?auto=format&fit=crop&q=80&w=300'"
+                >
+            </div>
+
+            <!-- Brand Header -->
+            <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold tracking-[0.4em] mb-3 uppercase text-zinc-100">
+                BODY COUNT UNKNOWN
+            </h1>
+            <p class="text-[11px] md:text-xs tracking-[0.3em] text-zinc-500 uppercase mb-8">
+                Drop 01 // Oversized Apparel Core
+            </p>
+
+            <!-- Interactive Count Down to Hype Launch -->
+            <div class="mb-10 p-3 bg-zinc-950 border border-zinc-900 rounded-lg max-w-sm w-full">
+                <p class="text-[10px] tracking-widest text-zinc-500 uppercase mb-2">Exclusive Drop Closes In</p>
+                <div class="grid grid-cols-4 gap-2 text-center">
+                    <div>
+                        <span id="days" class="text-lg font-bold text-green-500 neon-glow">02</span>
+                        <p class="text-[9px] uppercase tracking-widest text-zinc-600">Days</p>
+                    </div>
+                    <div>
+                        <span id="hours" class="text-lg font-bold text-green-500 neon-glow">14</span>
+                        <p class="text-[9px] uppercase tracking-widest text-zinc-600">Hrs</p>
+                    </div>
+                    <div>
+                        <span id="minutes" class="text-lg font-bold text-green-500 neon-glow">39</span>
+                        <p class="text-[9px] uppercase tracking-widest text-zinc-600">Min</p>
+                    </div>
+                    <div>
+                        <span id="seconds" class="text-lg font-bold text-zinc-400">05</span>
+                        <p class="text-[9px] uppercase tracking-widest text-zinc-600">Sec</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Early Access Form -->
+            <div class="w-full max-w-xl bg-zinc-950/60 border border-zinc-900 rounded-xl p-6 md:p-8 neon-border backdrop-blur-sm">
+                <h3 class="text-xs md:text-sm font-bold tracking-[0.25em] mb-4 text-center uppercase text-zinc-200">
+                    Log in for early drop access
+                </h3>
+                <form id="access-form" onsubmit="handleRegistration(event)" class="flex flex-col sm:flex-row gap-3">
+                    <input 
+                        type="email" 
+                        required 
+                        placeholder="ENTER YOUR EMAIL REGISTRATION" 
+                        class="bg-black border border-zinc-800 focus:border-green-500 text-zinc-100 text-xs tracking-wider px-4 py-3.5 rounded-md flex-grow focus:outline-none transition-colors placeholder:text-zinc-700"
+                    >
+                    <button 
+                        type="submit" 
+                        class="bg-white hover:bg-green-500 hover:text-black text-black font-bold text-xs tracking-[0.2em] uppercase px-8 py-3.5 rounded-md transition-all duration-300"
+                    >
+                        SUBMIT
+                    </button>
+                </form>
+                <p id="form-feedback" class="text-[10px] text-zinc-500 tracking-wider text-center mt-3 hidden"></p>
+            </div>
+        </div>
+
+        <!-- Catalog Section -->
+        <div class="border-t border-zinc-900 pt-12">
+            <div class="flex flex-col sm:flex-row justify-between items-baseline mb-8 gap-4">
+                <h2 class="text-xs tracking-[0.3em] text-zinc-400 uppercase">
+                    // DROP PREVIEW & RELEASES
+                </h2>
+                <!-- Filter Tabs -->
+                <div class="flex gap-4 text-[10px] tracking-widest uppercase">
+                    <button onclick="filterCatalog('all')" id="filter-all" class="text-green-500 border-b border-green-500 pb-1">All Items</button>
+                    <button onclick="filterCatalog('tee')" id="filter-tee" class="text-zinc-500 hover:text-white pb-1">Tees</button>
+                    <button onclick="filterCatalog('hoodie')" id="filter-hoodie" class="text-zinc-500 hover:text-white pb-1">Hoodies</button>
+                    <button onclick="filterCatalog('beanie')" id="filter-beanie" class="text-zinc-500 hover:text-white pb-1">Beanies</button>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="product-grid">
+                
+                <!-- Product 1: Box Fit Heavyweight Tee -->
+                <div class="group flex flex-col bg-zinc-950 border border-zinc-900 hover:border-zinc-700 rounded-lg p-5 transition-all duration-300 product-card" data-category="tee">
+                    <div class="relative bg-black rounded-md overflow-hidden aspect-square mb-4 border border-zinc-900 flex items-center justify-center group-hover:border-zinc-800 transition-colors">
+                        <!-- Neon Badge -->
+                        <span class="absolute top-3 left-3 bg-green-500 text-black text-[8px] font-bold px-2 py-0.5 tracking-widest uppercase rounded z-10">LTD RUN</span>
+                        
+                        <!-- Premium Heavyweight Mockup Image (No upload needed) -->
+                        <img 
+                            src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&q=80&w=600" 
+                            alt="Box Fit Heavyweight Tee" 
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        >
+                    </div>
+                    
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h3 class="text-xs font-bold tracking-widest uppercase text-zinc-200">BOX FIT HEAVYWEIGHT TEE</h3>
+                        <span class="text-xs text-green-500 font-bold">$38.00</span>
+                    </div>
+                    <p class="text-[10px] text-zinc-500 tracking-wider mb-4 uppercase">Washed Slate Black // 320GSM Heavy Cotton</p>
+                    
+                    <!-- Size Selector -->
+                    <div class="flex gap-2 mb-4 text-[9px] tracking-wider uppercase">
+                        <span class="text-zinc-600 self-center">Size:</span>
+                        <button onclick="selectSize(this, 'S')" class="size-btn border border-zinc-800 text-zinc-400 px-2 py-1 rounded hover:border-zinc-600 transition-colors">S</button>
+                        <button onclick="selectSize(this, 'M')" class="size-btn border border-zinc-600 text-white px-2 py-1 rounded bg-zinc-900 font-bold">M</button>
+                        <button onclick="selectSize(this, 'L')" class="size-btn border border-zinc-800 text-zinc-400 px-2 py-1 rounded hover:border-zinc-600 transition-colors">L</button>
+                        <button onclick="selectSize(this, 'XL')" class="size-btn border border-zinc-800 text-zinc-400 px-2 py-1 rounded hover:border-zinc-600 transition-colors">XL</button>
+                    </div>
+
+                    <button onclick="addToCart('BOX FIT HEAVYWEIGHT TEE', 38.00)" class="w-full bg-zinc-900 hover:bg-white hover:text-black border border-zinc-800 text-zinc-300 font-bold text-[10px] tracking-[0.2em] py-3.5 rounded transition-all uppercase mt-auto">
+                        ADD TO CART
+                    </button>
+                </div>
+
+                <!-- Product 2: Core Logo Oversized Hoodie -->
+                <div class="group flex flex-col bg-zinc-950 border border-zinc-900 hover:border-zinc-700 rounded-lg p-5 transition-all duration-300 product-card" data-category="hoodie">
+                    <div class="relative bg-black rounded-md overflow-hidden aspect-square mb-4 border border-zinc-900 flex items-center justify-center group-hover:border-zinc-800 transition-colors">
+                        <span class="absolute top-3 left-3 bg-zinc-800 text-zinc-300 text-[8px] font-bold px-2 py-0.5 tracking-widest uppercase rounded z-10">HEAVY APPAREL</span>
+                        
+                        <!-- Premium Heavyweight Hoodie Image (No upload needed) -->
+                        <img 
+                            src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&q=80&w=600" 
+                            alt="Oversized Graphic Hoodie" 
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        >
+                    </div>
+                    
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h3 class="text-xs font-bold tracking-widest uppercase text-zinc-200">OVERSIZED GRAPHIC HOODIE</h3>
+                        <span class="text-xs text-green-500 font-bold">$74.00</span>
+                    </div>
+                    <p class="text-[10px] text-zinc-500 tracking-wider mb-4 uppercase">Pitch Black // 460GSM French Terry</p>
+                    
+                    <!-- Size Selector -->
+                    <div class="flex gap-2 mb-4 text-[9px] tracking-wider uppercase">
+                        <span class="text-zinc-600 self-center">Size:</span>
+                        <button onclick="selectSize(this, 'S')" class="size-btn border border-zinc-800 text-zinc-400 px-2 py-1 rounded hover:border-zinc-600 transition-colors">S</button>
+                        <button onclick="selectSize(this, 'M')" class="size-btn border border-zinc-600 text-white px-2 py-1 rounded bg-zinc-900 font-bold">M</button>
+                        <button onclick="selectSize(this, 'L')" class="size-btn border border-zinc-800 text-zinc-400 px-2 py-1 rounded hover:border-zinc-600 transition-colors">L</button>
+                        <button onclick="selectSize(this, 'XL')" class="size-btn border border-zinc-800 text-zinc-400 px-2 py-1 rounded hover:border-zinc-600 transition-colors">XL</button>
+                    </div>
+
+                    <button onclick="addToCart('OVERSIZED GRAPHIC HOODIE', 74.00)" class="w-full bg-zinc-900 hover:bg-white hover:text-black border border-zinc-800 text-zinc-300 font-bold text-[10px] tracking-[0.2em] py-3.5 rounded transition-all uppercase mt-auto">
+                        ADD TO CART
+                    </button>
+                </div>
+
+                <!-- Product 3: Street Beanie -->
+                <div class="group flex flex-col bg-zinc-950 border border-zinc-900 hover:border-zinc-700 rounded-lg p-5 transition-all duration-300 product-card" data-category="beanie">
+                    <div class="relative bg-black rounded-md overflow-hidden aspect-square mb-4 border border-zinc-900 flex items-center justify-center group-hover:border-zinc-800 transition-colors">
+                        <span class="absolute top-3 left-3 bg-green-500 text-black text-[8px] font-bold px-2 py-0.5 tracking-widest uppercase rounded z-10">CORE LINE</span>
+                        
+                        <!-- Premium Beanie Image (No upload needed) -->
+                        <img 
+                            src="https://images.unsplash.com/photo-1576871337622-98d48d4353d3?auto=format&fit=crop&q=80&w=600" 
+                            alt="Core Beanie Black" 
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        >
+                    </div>
+                    
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h3 class="text-xs font-bold tracking-widest uppercase text-zinc-200">CORE BEANIE (BLACK)</h3>
+                        <span class="text-xs text-green-500 font-bold">$22.00</span>
+                    </div>
+                    <p class="text-[10px] text-zinc-500 tracking-wider mb-4 uppercase">Pitch Black // Double Layer Acrylic</p>
+                    
+                    <!-- Size Selector -->
+                    <div class="flex gap-2 mb-4 text-[9px] tracking-wider uppercase">
+                        <span class="text-zinc-600 self-center">Size:</span>
+                        <button class="border border-zinc-600 text-white px-3 py-1 rounded bg-zinc-900 font-bold">ONE SIZE</button>
+                    </div>
+
+                    <button onclick="addToCart('CORE BEANIE (BLACK)', 22.00)" class="w-full bg-zinc-900 hover:bg-white hover:text-black border border-zinc-800 text-zinc-300 font-bold text-[10px] tracking-[0.2em] py-3.5 rounded transition-all uppercase mt-auto">
+                        ADD TO CART
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Side Cart Slideout Drawer -->
+    <div id="cart-drawer" class="fixed inset-y-0 right-0 max-w-md w-full bg-zinc-950 border-l border-zinc-900 z-50 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between shadow-2xl">
+        <div class="p-6 overflow-y-auto flex-grow">
+            <div class="flex justify-between items-center mb-8 pb-4 border-b border-zinc-900">
+                <h3 class="text-xs font-bold tracking-[0.2em] uppercase text-zinc-200">Your Cart</h3>
+                <button onclick="closeCart()" class="text-zinc-500 hover:text-white text-xs tracking-widest uppercase">[Close]</button>
+            </div>
+
+            <div id="cart-items" class="space-y-6">
+                <!-- Dynamic Cart Items Inserted Here -->
+                <p id="empty-cart-message" class="text-xs text-zinc-600 tracking-widest text-center py-12 uppercase">Your cart is empty</p>
+            </div>
+        </div>
+
+        <div class="p-6 border-t border-zinc-900 bg-black/50">
+            <div class="flex justify-between items-center mb-4 text-xs tracking-widest uppercase">
+                <span class="text-zinc-400">Total</span>
+                <span id="cart-total" class="font-bold text-green-500">$0.00</span>
+            </div>
+            <button onclick="checkout()" class="w-full bg-white hover:bg-green-500 hover:text-black text-black font-bold text-xs tracking-[0.2em] py-4 rounded transition-colors uppercase">
+                PROCEED TO CHECKOUT
+            </button>
+        </div>
+    </div>
+
+    <!-- Backdrop for Drawer -->
+    <div id="cart-backdrop" onclick="closeCart()" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 hidden transition-opacity duration-300"></div>
+
+    <!-- Custom Notification Toast -->
+    <div id="toast" class="fixed bottom-6 right-6 bg-zinc-900 border border-zinc-800 text-white text-xs tracking-widest uppercase px-6 py-4 rounded-md shadow-2xl z-50 transform translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-3">
+        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+        <span id="toast-text">Item added to cart</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-zinc-950 border-t border-zinc-900 py-12 px-6 md:px-12 text-center text-[10px] tracking-widest text-zinc-600 uppercase">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <p>&copy; 2026 BODY COUNT UNKNOWN. ALL RIGHTS RESERVED.</p>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-white transition-colors">Instagram</a>
+                <a href="#" class="hover:text-white transition-colors">TikTok</a>
+                <a href="#" class="hover:text-white transition-colors">Terms</a>
+                <a href="#" class="hover:text-white transition-colors">Privacy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Interactions -->
+    <script>
+        // Count Down Logic
+        function startCountdown() {
+            let daysEl = document.getElementById('days');
+            let hoursEl = document.getElementById('hours');
+            let minutesEl = document.getElementById('minutes');
+            let secondsEl = document.getElementById('seconds');
+
+            // Hardcode or dynamic countdown values
+            let d = 2, h = 14, m = 39, s = 5;
+
+            setInterval(() => {
+                if (s > 0) {
+                    s--;
+                } else {
+                    s = 59;
+                    if (m > 0) {
+                        m--;
+                    } else {
+                        m = 59;
+                        if (h > 0) {
+                            h--;
+                        } else {
+                            h = 23;
+                            if (d > 0) d--;
+                        }
+                    }
+                }
+                daysEl.innerText = String(d).padStart(2, '0');
+                hoursEl.innerText = String(h).padStart(2, '0');
+                minutesEl.innerText = String(m).padStart(2, '0');
+                secondsEl.innerText = String(s).padStart(2, '0');
+            }, 1000);
+        }
+        startCountdown();
+
+        // Email Registration Form
+        function handleRegistration(e) {
+            e.preventDefault();
+            const emailInput = e.target.querySelector('input');
+            const feedback = document.getElementById('form-feedback');
+            
+            feedback.innerText = "ACCESS GRANTED. VERIFICATION CODE SENT TO: " + emailInput.value.toUpperCase();
+            feedback.classList.remove('hidden');
+            feedback.classList.remove('text-zinc-500');
+            feedback.classList.add('text-green-500');
+            
+            // Show custom toast
+            showToast("ACCESS GRANTED. CHECK INBOX.");
+            emailInput.value = '';
+        }
+
+        // Cart State & Functionality
+        let cart = [];
+        let currentSelectedSizes = {
+            'BOX FIT HEAVYWEIGHT TEE': 'M',
+            'OVERSIZED GRAPHIC HOODIE': 'M'
+        };
+
+        function selectSize(btn, size) {
+            // Unselect sibling buttons in the same container
+            const siblings = btn.parentElement.querySelectorAll('.size-btn');
+            siblings.forEach(s => {
+                s.classList.remove('border-zinc-600', 'text-white', 'bg-zinc-900', 'font-bold');
+                s.classList.add('border-zinc-800', 'text-zinc-400');
+            });
+
+            // Select clicked size button
+            btn.classList.remove('border-zinc-800', 'text-zinc-400');
+            btn.classList.add('border-zinc-600', 'text-white', 'bg-zinc-900', 'font-bold');
+
+            // Find product name and assign chosen size
+            const productName = btn.closest('.product-card').querySelector('h3').innerText;
+            currentSelectedSizes[productName] = size;
+        }
+
+        function addToCart(name, price) {
+            const size = currentSelectedSizes[name] || 'OS'; // OS for One Size (beanie)
+            const cartKey = `${name}-${size}`;
+            
+            const existingItem = cart.find(item => item.key === cartKey);
+            if (existingItem) {
+                existingItem.qty += 1;
+            } else {
+                cart.push({ key: cartKey, name, price, size, qty: 1 });
+            }
+
+            updateCartUI();
+            showToast(`ADDED ${name} (${size}) TO CART`);
+        }
+
+        function removeFromCart(key) {
+            cart = cart.filter(item => item.key !== key);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const cartCount = document.getElementById('cart-count');
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            const emptyMessage = document.getElementById('empty-cart-message');
+
+            const totalQty = cart.reduce((acc, item) => acc + item.qty, 0);
+            cartCount.innerText = totalQty;
+
+            if (cart.length === 0) {
+                emptyMessage.style.display = 'block';
+                cartItemsContainer.querySelectorAll('.cart-item-row').forEach(el => el.remove());
+                cartTotal.innerText = '$0.00';
+                return;
+            }
+
+            emptyMessage.style.display = 'none';
+            // Clear current list of rows
+            cartItemsContainer.querySelectorAll('.cart-item-row').forEach(el => el.remove());
+
+            let totalVal = 0;
+            cart.forEach(item => {
+                const subTotal = item.price * item.qty;
+                totalVal += subTotal;
+
+                const row = document.createElement('div');
+                row.className = "cart-item-row flex justify-between items-center bg-black/40 border border-zinc-900 p-3 rounded-md";
+                row.innerHTML = `
+                    <div class="flex-grow">
+                        <h4 class="text-[11px] font-bold tracking-wider text-zinc-200 uppercase">${item.name}</h4>
+                        <p class="text-[9px] text-zinc-500 uppercase tracking-widest mt-0.5">Size: ${item.size} // Qty: ${item.qty}</p>
+                    </div>
+                    <div class="text-right flex items-center gap-4">
+                        <span class="text-xs text-zinc-300 font-bold">$${subTotal.toFixed(2)}</span>
+                        <button onclick="removeFromCart('${item.key}')" class="text-[9px] text-zinc-600 hover:text-red-500 uppercase tracking-widest">[X]</button>
+                    </div>
+                `;
+                cartItemsContainer.appendChild(row);
+            });
+
+            cartTotal.innerText = `$${totalVal.toFixed(2)}`;
+        }
+
+        // Cart Slideout Control
+        function openCart() {
+            document.getElementById('cart-drawer').classList.remove('translate-x-full');
+            document.getElementById('cart-backdrop').classList.remove('hidden');
+        }
+
+        // Close Cart
+        function closeCart() {
+            document.getElementById('cart-drawer').classList.add('translate-x-full');
+            document.getElementById('cart-backdrop').classList.add('hidden');
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                showToast("YOUR CART IS EMPTY!");
+                return;
+            }
+            showToast("REDIRECTING TO SECURE GATEWAY...");
+        }
+
+        // Toast Messages
+        let toastTimeout;
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-text').innerText = msg;
+            
+            toast.classList.remove('opacity-0', 'translate-y-20');
+            toast.classList.add('opacity-100', 'translate-y-0');
+
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', 'translate-y-20');
+            }, 3000);
+        }
+
+        // Filter Catalog
+        function filterCatalog(category) {
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Update tab styles
+            const tabs = ['all', 'tee', 'hoodie', 'beanie'];
+            tabs.forEach(tab => {
+                const el = document.getElementById(`filter-${tab}`);
+                if (tab === category) {
+                    el.className = 'text-green-500 border-b border-green-500 pb-1';
+                } else {
+                    el.className = 'text-zinc-500 hover:text-white pb-1';
+                }
+            });
+        }
+    </script>
 </body>
 </html>
+
+```
